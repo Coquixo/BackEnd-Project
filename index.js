@@ -22,5 +22,5 @@ app.listen(PORT, () => {
         .then(() => {
             console.log('Connected to the database');
         })
-        .catch(err => { console.log('Not connecter to the database') })
+        .catch(() => { console.log('Not connected to the database') })
 });
