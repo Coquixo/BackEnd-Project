@@ -55,7 +55,7 @@ router.put('/updateSerie', async (req, res) => {
 
         res.send({
             resp: resp,
-            message: 'Order updated correctly'
+            message: 'Serie updated correctly'
         })
 
 
@@ -65,22 +65,22 @@ router.put('/updateSerie', async (req, res) => {
 
 });
 
-//Delete Order
+//Delete Serie
 
-router.delete('/deleteOrder', async (req, res) => {
+router.delete('/deleteSerie/:id_serie', async (req, res) => {
 
     try {
         let data = req.params;
-        let resp = await Order.destroy({
-            where: { id_article: data.id_article }
+        let resp = await Serie.destroy({
+            where: { id_serie: data.id_serie }
 
         })
         console.log(resp);
 
         if (resp == 1) {
-            res.send('Order has been deleted');
+            res.send('Serie has been deleted');
         } else {
-            res.send("Order hasn't been deleted");
+            res.send("Serie hasn't been deleted");
         }
 
     } catch (error) {
@@ -89,3 +89,4 @@ router.delete('/deleteOrder', async (req, res) => {
 
 })
 
+module.exports = router;

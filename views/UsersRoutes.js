@@ -65,7 +65,7 @@ router.put('/updateUser', async (req, res) => {
 
 //Delete User
 
-router.delete('/deleteUser:id_user', async (req, res) => {
+router.delete('/deleteUser/:id_user', async (req, res) => {
 
     try {
 
