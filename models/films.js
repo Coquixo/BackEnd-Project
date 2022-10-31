@@ -26,10 +26,6 @@ Films.init({
   rate: DataTypes.INTEGER,
   release_date: DataTypes.DATE,
 
-  aricle_id: {
-    type: DataTypes.INTEGER,
-    allowNull: false
-  }
 }, {
   sequelize,
   modelName: 'Films',

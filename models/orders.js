@@ -20,11 +20,7 @@ Orders.init({
     type: DataTypes.DATE,
     allowNull: false
   },
-  user_id: { //tengo que especicicar si es foranea??
 
-    type: DataTypes.INTEGER,
-    allowNull: false
-  }
 
 }, {
   sequelize,

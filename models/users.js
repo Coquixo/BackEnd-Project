@@ -1,7 +1,7 @@
-'use strict';
 const { DataTypes, Model } = require('sequelize');
 const sequelize = require('../db/db')
 class Users extends Model { }
+
 Users.init({
   id_user: {
     type: DataTypes.INTEGER,
