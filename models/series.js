@@ -1,5 +1,6 @@
 'use strict';
 const { DataTypes, Model } = require('sequelize');
+const  sequelize = require('../db/db')
 class Series extends Model { }
 
 Series.init({

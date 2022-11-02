@@ -11,8 +11,7 @@ const SeriesRoutes = require('./views/SeriesRoutes');
 
 
 //middleware para las rutas de usuario
-// router.use('/user', UserRoutes)
-// router.use('/profile', ProfileRoutes)
+
 
 router.use('/users', UsersRoutes);
 router.use('/orders', OrdersRoutes);
