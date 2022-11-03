@@ -1,18 +1,13 @@
 const express = require('express');
+const UserController = require('../controllers/UserController');
 const router = express.Router();
+
 
 const User = require('../models/users');
 
 //Get all Users
 
-router.get('/getUsers', (req, res) => {
-
-    User.findAll()
-        .then(resp => {
-            res.send(resp);
-        });
-
-});
+router.get('/getUsers', UserController.getUsers);
 
 //Create new User
 

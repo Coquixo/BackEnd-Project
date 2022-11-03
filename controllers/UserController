@@ -1,0 +1,15 @@
+const User = require('../models/users')
+
+const UserController = {};
+
+UserController.getUsers = async (req, res) => {
+    User.findAll()
+        .then(resp => {
+            res.send(resp);
+        });
+}
+
+
+
+
+module.exports = UserController;
