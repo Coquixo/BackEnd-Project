@@ -5,7 +5,11 @@ const UserController = require('../controllers/UserController')
 
 //Get all Users
 
-router.get('/getUsers', UserController.getUsers);
+router.get('/getAll', UserController.getUsers);
+
+//Get User by ID
+
+router.get('/getById/:id', UserController.getUserById);
 
 //Create new User
 
@@ -13,7 +17,7 @@ router.post('/registerUser', UserController.registerUser)
 
 //Update existing User
 
-router.put('/updateUser', UserController.updateUser )
+router.put('/updateUser', UserController.updateUser)
 
 //Delete User
 

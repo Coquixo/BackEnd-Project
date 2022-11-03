@@ -6,7 +6,7 @@ const OrderController = require('../controllers/OrderController');
 
 //Get all Orders
 
-router.get('/getOrders', OrderController.gerOrders);
+router.get('/getAll', OrderController.gerOrders);
 
 //Generate new Order
 

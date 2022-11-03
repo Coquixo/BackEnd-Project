@@ -12,6 +12,64 @@ SerieController.getSeries = async (req, res) => {
         });
 };
 
+
+//Get one serie by id
+
+
+SerieController.getSerieById = async (req, res) => {
+    try {
+
+        let id_serie = req.params.id
+        Serie.findByPk(id_serie)
+            .then(resp => {
+                res.send(resp)
+            })
+    } catch (error) {
+        res.send(error)
+    }
+
+}
+
+//Get Series By tittle
+
+SerieController.getSerieByTittle = async (req, res) => {
+    try {
+
+        let tittle = req.params.tittle;
+        let resp = await Serie.findAll({
+            where: { tittle: tittle }
+        });
+        res.send(resp);
+
+    } catch (error) {
+        res.send(error);
+    }
+
+}
+
+//Get Top rated Serie -----------------------------
+SerieController.getTopRatedSeries = async (req, res) => {
+    try {
+        let resp = await Serie.findAll({
+            include: {
+                model: Serie,
+                where: {
+                    rate: 8 || 9 || 10
+                }
+
+            }
+        })
+        res.send(resp);
+
+
+    } catch (error) {
+        res.send(error);
+    }
+
+
+}
+
+
 //Generate new Serie
 
 SerieController.registerSerie = async (req, res) => {
@@ -49,7 +107,7 @@ SerieController.updateSerie = async (req, res) => {
             release_date: data.release_date
 
         }, {
-            where: { id_serie: data.id_serie}
+            where: { id_serie: data.id_serie }
         });
 
         res.send({

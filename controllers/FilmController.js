@@ -11,6 +11,81 @@ FilmController.getFilms = async (req, res) => {
         });
 };
 
+//Get one film by id
+
+
+FilmController.getFilmById = async (req, res) => {
+    try {
+        let id_film = req.params.id;
+        Film.findByPk(id_film)
+            .then(resp => {
+                res.send(resp);
+            });
+
+    } catch (error) {
+        res.send(error);
+    }
+
+}
+
+//Get film by tittle
+
+FilmController.getFilmByTittle = async (req, res) => {
+
+    try {
+        let tittle = req.params.tittle;
+        let resp = await Film.findAll({
+            where: { tittle: tittle }
+        })
+        res.send(resp);
+
+    } catch (error) {
+        res.send(error);
+    }
+
+}
+
+//Get films by genre
+
+FilmController.getFilmsByGenre = async (req, res) => {
+
+    try {
+
+        let genre = req.params.genre;
+        let resp = await Film.findAll({
+            where: { genre: genre }
+        })
+
+        res.send(resp);
+
+    } catch (error) {
+        res.send(error);
+    }
+};
+
+//Get Top rated Films -----------------------------
+
+FilmController.getTopRatedFilms = async (req, res) => {
+    try {
+        let resp = await Film.findAll({
+            include: {
+                model: Film,
+                where: {
+                    rate: 8 || 9 || 10
+                }
+
+            }
+        });
+        res.send(resp);
+
+
+    } catch (error) {
+        res.send(error);
+    }
+
+
+}
+
 //Generate new Film
 
 FilmController.registerFilm = async (req, res) => {

@@ -5,12 +5,30 @@ const UserController = {};
 
 //Get all Users
 UserController.getUsers = async (req, res) => {
-    User.findAll()
-        .then(resp => {
-            res.send(resp);
-        });
+    try {
+        User.findAll()
+            .then(resp => {
+                res.send(resp);
+            });
+    } catch (error) {
+        res.send(error);
+    }
 }
 
+//Get User By Id
+
+UserController.getUserById = async (req, res) => {
+    try {
+        let id_user = req.params.id;
+        User.findByPk(id_user)
+        .then(resp =>{
+            res.send(resp);
+        });
+
+    } catch (error) {
+        res.send(error);
+    }
+}
 
 //Create new User
 
@@ -66,6 +84,7 @@ UserController.updateUser = async (req, res) => {
     }
 };
 
+//Delete a User
 UserController.deleteUser = async (req, res) => {
 
     try {
@@ -86,8 +105,5 @@ UserController.deleteUser = async (req, res) => {
     }
 
 }
-
-
-
 
 module.exports = UserController;

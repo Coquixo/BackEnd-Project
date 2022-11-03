@@ -5,7 +5,19 @@ const SerieController = require('../controllers/SerieController')
 
 //Get all Series
 
-router.get('/getSeries', SerieController.getSeries);
+router.get('/getAll', SerieController.getSeries);
+
+//Get Top rated Series ---- no ho se
+
+router.get('/getTopRated', SerieController.getTopRatedSeries);
+
+//Get one serie by id
+
+router.get('/getById/:id', SerieController.getSerieById);
+
+//Get Series by Tittle
+
+router.get('/getByTittle/:tittle', SerieController.getSerieByTittle)
 
 //Generate new Serie By Body
 
