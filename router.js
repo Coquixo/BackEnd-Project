@@ -6,8 +6,6 @@ const OrdersRoutes = require('./views/OrdersRoutes');
 const FilmsRoutes = require('./views/FilmsRoutes');
 const SeriesRoutes = require('./views/SeriesRoutes');
 
-// const UserRoutes = require('./views/UserRoutes')
-// const ProfileRoutes = require('./views/ProfileRoutes')
 
 
 //middleware para las rutas de usuario
