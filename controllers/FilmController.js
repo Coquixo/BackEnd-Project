@@ -54,7 +54,7 @@ FilmController.getFilmsByGenre = async (req, res) => {
         let genre = req.params.genre;
         let resp = await Film.findAll({
             where: { genre: genre }
-        })
+        }) 
 
         res.send(resp);
 
@@ -71,7 +71,7 @@ FilmController.getTopRatedFilms = async (req, res) => {
             include: {
                 model: Film,
                 where: {
-                    rate: 8 || 9 || 10
+                    rate: [8,10]
                 }
 
             }

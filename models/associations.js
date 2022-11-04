@@ -11,11 +11,11 @@ Orders.belongsTo(Users);
 
 //Relation 1 to N Orders => Films
 
-Orders.hasMany(Films);
-Films.belongsTo(Orders);
+Films.hasMany(Orders);
+Orders.belongsTo(Films);
 
 //Relation 1 to N Orders => Series
 
-Orders.hasMany(Series);
-Series.belongsTo(Orders);
+Series.hasMany(Orders);
+Orders.belongsTo(Series);
 

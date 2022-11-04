@@ -11,9 +11,27 @@ OrderController.gerOrders = async (req, res) => {
         });
 };
 
+//Get Order from an User
+
+OrderController.getUserOrder = async (req, res) => {
+    try {
+
+        
+
+
+
+    } catch (error) {
+        res.send(error);
+    }
+
+
+
+
+}
+
 //Generate new Order
 
-OrderController.registerOrder =  async (req, res) => {
+OrderController.registerOrder = async (req, res) => {
 
     try {
         let data = req.body;
@@ -40,7 +58,6 @@ OrderController.updateOrder = async (req, res) => {
 
             order_date: data.order_date,
             return_date: data.return_date
-
 
         }, {
             where: { id_article: data.id_article }
@@ -72,7 +89,7 @@ OrderController.deleteOrder = async (req, res) => {
 
         if (resp == 1) {
             res.send('Order has been deleted');
-        }else{
+        } else {
             res.send("Order hasn't been deleted");
         }
 
