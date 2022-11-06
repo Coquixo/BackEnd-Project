@@ -16,7 +16,7 @@ SerieController.getSeries = async (req, res) => {
 
 SerieController.getSerieById = async (req, res) => {
     try {
-        let id_serie = req.params.id
+        let id_serie = req.params.id_serie
         Serie.findByPk(id_serie)
             .then(resp => {
                 res.send(resp)

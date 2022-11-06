@@ -122,11 +122,10 @@ FilmController.updateFilm = async (req, res) => {
             release_date: data.release_date
 
         }, {
-            where: { id_film: data.id_film }
+            where: { id_film: req.params.id_film}
         });
 
         res.send({
-            resp: resp,
             message: 'Film updated correctly'
         })
 

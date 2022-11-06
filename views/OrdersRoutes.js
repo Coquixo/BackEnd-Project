@@ -4,6 +4,9 @@ const OrderController = require('../controllers/OrderController');
 const AuthController = require('../controllers/authController')
 
 
+//Generate new Order
+
+router.post('/register', OrderController.registerOrder);
 
 //Get all Orders
 
@@ -13,10 +16,6 @@ router.get('/getAll', AuthController.assertIsAdmin, OrderController.gerOrders);
 
 router.get('/getUserOrders/:user_id', OrderController.getUserOrders)
 
-//Generate new Order
-
-router.post('/register', OrderController.registerOrder);
-
 
 //Update Order
 
@@ -24,6 +23,6 @@ router.put('/update/:id_article', OrderController.updateOrder);
 
 //Delete Order
 
-router.delete('/deleteOrder', OrderController.deleteOrder);
+router.delete('/delete/:id_article', OrderController.deleteOrder);
 
 module.exports = router;

@@ -3,21 +3,20 @@ const router = express.Router();
 const UserController = require('../controllers/UserController');
 const AuthController = require('../controllers/authController');
 
+//Register new User
 
-//Get all Users
-
-router.get('/getAll', UserController.getUsers);
+router.post('/register', UserController.registerUser)
 
 //Login user
 
 router.post('/login', UserController.loginUser);
 
+//Get all Users
+
+router.get('/getAll', UserController.getUsers);
+
 //Get User by ID
 router.get('/getById/:id_user', UserController.getUserById);
-
-//Register new User
-
-router.post('/register', UserController.registerUser)
 
 //Update existing User
 

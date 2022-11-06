@@ -3,6 +3,9 @@ const router = express.Router();
 const SerieController = require('../controllers/SerieController')
 const authControllers = require('../controllers/authController')
 
+//Generate new Serie By Body
+
+router.post('/register', authControllers.assertIsAdmin, SerieController.registerSerie);
 
 //Get all Series
 
@@ -18,7 +21,7 @@ router.get('/getTopRated', SerieController.getTopRatedSeries);
 
 //Get one serie by id
 
-router.get('/getById/:id', SerieController.getSerieById);
+router.get('/getById/:id_serie', SerieController.getSerieById);
 
 //Get Series by Tittle
 
@@ -28,13 +31,9 @@ router.get('/getByTittle/:tittle', SerieController.getSerieByTittle);
 
 router.get('/getAllTheater', SerieController.getTheaterSeries);
 
-//Generate new Serie By Body
-
-router.post('/registerSerie', authControllers.assertIsAdmin, SerieController.registerSerie);
-
 //Update Serie
 
-router.put('/updateSerie/:id_serie', authControllers.assertIsAdmin, SerieController.updateSerie);
+router.put('/update/:id_serie', authControllers.assertIsAdmin, SerieController.updateSerie);
 
 //Delete Serie by param
 
