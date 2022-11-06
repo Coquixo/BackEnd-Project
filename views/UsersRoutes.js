@@ -1,83 +1,30 @@
 const express = require('express');
-const UserController = require('../controllers/UserController');
 const router = express.Router();
+const UserController = require('../controllers/UserController');
+const AuthController = require('../controllers/authController');
 
-
-const User = require('../models/users');
 
 //Get all Users
 
-router.get('/getUsers', UserController.getUsers);
+router.get('/getAll', UserController.getUsers);
 
-//Create new User
+//Login user
 
-router.post('/registerUser', async (req, res) => {
+router.post('/login', UserController.loginUser);
 
-    try {
+//Get User by ID
+router.get('/getById/:id', UserController.getUserById);
 
-        let data = req.body;
-        let resp = await User.create({
-            id_user: data.id_user,
-            name_user: data.name_user,
-            surname_user: data.surname_user,
-            is_admin: data.is_admin
+//Register new User
 
-        });
-
-        res.send(resp);
-
-    } catch (error) {
-        res.send(error)
-    }
-});
+router.post('/register', UserController.registerUser)
 
 //Update existing User
 
-router.put('/updateUser', async (req, res) => {
-
-    try {
-
-        let data = req.body;
-        let resp = await User.update({
-
-
-            name_user: data.name_user,
-            surname_user: data.surname_user,
-            is_admin: data.is_admin
-        }, {
-            where: { id_user: data.id_user }
-
-        });
-        res.send({
-            resp: resp,
-            message: 'User updated correctly.'
-        })
-
-    } catch (error) {
-        res.send(error);
-    }
-});
+router.put('/updateUser', UserController.updateUser)
 
 //Delete User
 
-router.delete('/deleteUser/:id_user', async (req, res) => {
-
-    try {
-
-        let data = req.params;
-        let resp = await User.destroy({
-            where: { id_user: data.id_user }
-        })
-        console.log(resp);
-        if (resp == 1) {
-            res.send('User has been deleted');
-        } else {
-            res.send("User hasn't been deleted");
-        }
-
-    } catch (error) {
-        res.send(error);
-    }
-});
+router.delete('/delete/:id_user', AuthController.assertIsAdmin, UserController.deleteUser)
 
 module.exports = router;

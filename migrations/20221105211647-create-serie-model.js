@@ -8,22 +8,25 @@ module.exports = {
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
-
       },
       tittle: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        allowNull: false,
       },
       genre: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        allowNull: false,
       },
       rate: {
         type: Sequelize.INTEGER
       },
-      release_date: {
-        type: Sequelize.DATE
+      in_theater: {
+        type: Sequelize.BOOLEAN,
+        allowNull: false,
       },
-      aricle_id: {
-        type: Sequelize.INTEGER
+      release_date: {
+        type: Sequelize.DATE,
+        allowNull: false,
       },
       createdAt: {
         allowNull: false,

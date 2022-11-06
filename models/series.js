@@ -25,13 +25,14 @@ Series.init({
     }
   },
   rate: DataTypes.INTEGER,
+  in_theater: DataTypes.BOOLEAN,
   release_date: DataTypes.DATE,
 
 }, {
   sequelize,
-  modelName: 'Series',
+  modelName: 'series',
   freezeTableName: true,
-  timestamps: false
+  timestamps: true
 });
 
 module.exports = Series;
