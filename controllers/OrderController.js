@@ -4,25 +4,30 @@ const OrderController = {};
 //Get all Orders
 
 OrderController.gerOrders = async (req, res) => {
-
-    Order.findAll()
-        .then(resp => {
-            res.send(resp);
-        });
-};
-
-//Get Order from an User
-
-OrderController.getUserOrder = async (req, res) => {
     try {
-
-        //FALTA
-
-
-
+        const resp = await Order.findAll()
+        res.send(resp)
     } catch (error) {
         res.send(error);
     }
+
+};
+
+//Get Orders from an User
+
+OrderController.getUserOrders = async (req, res) => {
+
+    try {
+        const resp = await Order.findAll({
+            where: {
+                user_id: req.params.user_id
+            }
+        })
+        res.send(resp)
+    } catch (error) {
+        res.send(error);
+    }
+
 
 
 
@@ -35,10 +40,14 @@ OrderController.registerOrder = async (req, res) => {
 
     try {
         let data = req.body;
+        console.log(data)
         let resp = await Order.create({
-            id_article: data.id_article,
+            user_id: data.user_id,
             order_date: data.order_date,
-            return_date: data.return_date
+            return_date: data.return_date,
+            serie_id: data.serie_id,
+            film_id: data.film_id
+
         })
 
         res.send(resp)
@@ -54,13 +63,8 @@ OrderController.updateOrder = async (req, res) => {
 
     try {
         let data = req.body;
-        let resp = await Order.update({
-
-            order_date: data.order_date,
-            return_date: data.return_date
-
-        }, {
-            where: { id_article: data.id_article }
+        let resp = await Order.update(data, {
+            where: { id_article: req.params.id_article }
         });
 
         res.send({

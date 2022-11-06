@@ -1,5 +1,6 @@
+const { findAll } = require('../models/series');
 const Serie = require('../models/series');
-
+const { Op } = require("sequelize");
 const SerieController = {};
 
 //Get all Series
@@ -31,8 +32,52 @@ SerieController.getSerieByTittle = async (req, res) => {
     try {
         let tittle = req.params.tittle;
         let resp = await Serie.findAll({
-            where: { tittle: tittle}
+            where: { tittle: tittle }
         });
+        res.send(resp);
+
+    } catch (error) {
+        res.send(error);
+    }
+}
+
+//Get 7d upcoming series
+
+SerieController.get7dUpcoming = async (req, res) => {
+    const currentDate = new Date();
+
+    const nextWeek = new Date();
+    nextWeek.setDate(nextWeek.getDate() + 7)
+    try {
+        let resp = await Serie.findAll({
+            where: {
+                release_date: {
+                    [Op.lte]: nextWeek,
+                    [Op.gte]: currentDate
+                }
+            }
+        })
+        res.send(resp)
+
+
+    } catch (error) {
+        res.send(error)
+    }
+
+
+
+}
+
+//Get Series that are on theaters 
+
+SerieController.getTheaterSeries = async (req, res) => {
+    try {
+
+        let resp = await Serie.findAll({
+            where: { in_theater: true }
+
+        })
+
         res.send(resp);
 
     } catch (error) {
@@ -45,12 +90,8 @@ SerieController.getSerieByTittle = async (req, res) => {
 SerieController.getTopRatedSeries = async (req, res) => {
     try {
         let resp = await Serie.findAll({
-            include: {
-                model: Serie,
-                where: {
-                    rate: [8, 10]
-                }
-            }
+            where: { rate: [8 - 10] }
+
         })
         res.send(resp);
     } catch (error) {
@@ -66,7 +107,6 @@ SerieController.registerSerie = async (req, res) => {
         let data = req.body;
         let resp = await Serie.create({
 
-            id_serie: data.id_serie,
             tittle: data.tittle,
             genre: data.genre,
             rate: data.rate,
@@ -97,11 +137,11 @@ SerieController.updateSerie = async (req, res) => {
             release_date: data.release_date
 
         }, {
-            where: { id_serie: data.id_serie }
+
+            where: { id_serie: req.params.id_serie }
         });
 
         res.send({
-            resp: resp,
             message: 'Serie updated correctly'
         })
     } catch (error) {

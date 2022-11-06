@@ -20,6 +20,18 @@ Orders.init({
     type: DataTypes.DATE,
     allowNull: false
   },
+  user_id: {
+    type: DataTypes.INTEGER,
+    allowNull: false
+  },
+  serie_id: {
+    type: DataTypes.INTEGER,
+    allowNull: true
+  },
+  film_id:{
+    type: DataTypes.INTEGER,
+    allowNull:true
+  }
 
 
 }, {

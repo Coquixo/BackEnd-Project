@@ -29,7 +29,7 @@ UserController.getUsers = async (req, res) => {
 
 UserController.getUserById = async (req, res) => {
     try {
-        let id_user = req.params.id;
+        let id_user = req.params.id_user;
         User.findByPk(id_user)
             .then(resp => {
                 res.send(resp);
@@ -48,7 +48,6 @@ UserController.registerUser = async (req, res) => {
         let data = req.body;
 
         let password = bcrypt.hashSync(data.user_password, Number.parseInt(authConfig.rounds || 10));
-        console.log("hey")
 
         let user = await User.create({
 
@@ -82,7 +81,7 @@ UserController.loginUser = async (req, res) => {
 
     try {
         let data = req.body
-        const user = await User.findOne({ where: { user_email: data.user_email }})
+        const user = await User.findOne({ where: { user_email: data.user_email } })
 
         const validPassword = await bcrypt.compareSync(data.user_password, user.user_password)
 
@@ -115,19 +114,16 @@ UserController.updateUser = async (req, res) => {
     try {
 
         let data = req.body;
-        let resp = await User.update({
+        if (data.user_password) {
+            data.user_password = bcrypt.hashSync(data.user_password, Number.parseInt(authConfig.rounds || 10));
+        }
 
-
-            name_user: data.name_user,
-            user_email: user_email,
-            user_password: user_password,
-            surname_user: data.surname_user
-        }, {
-            where: { id_user: data.id_user }
+        let user = await User.update(data, {
+            where: { id_user: req.params.id_user }
 
         });
         res.send({
-            resp: resp,
+            token: generateToken(user),
             message: 'User updated successfully.'
         })
 

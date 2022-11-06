@@ -1,20 +1,26 @@
 const express = require('express');
 const router = express.Router();
 const OrderController = require('../controllers/OrderController');
+const AuthController = require('../controllers/authController')
 
 
 
 //Get all Orders
 
-router.get('/getAll', OrderController.gerOrders);
+router.get('/getAll', AuthController.assertIsAdmin, OrderController.gerOrders);
+
+//Get Orders by User
+
+router.get('/getUserOrders/:user_id', OrderController.getUserOrders)
 
 //Generate new Order
 
-router.post('/registerOrder', OrderController.registerOrder);
+router.post('/register', OrderController.registerOrder);
+
 
 //Update Order
 
-router.put('/updateOrder', OrderController.updateOrder);
+router.put('/update/:id_article', OrderController.updateOrder);
 
 //Delete Order
 

@@ -21,6 +21,12 @@ module.exports = {
         type: Sequelize.INTEGER,
         allowNull: false,
       },
+      film_id: {
+        type: Sequelize.INTEGER
+      },
+      serie_id: { 
+        type:Sequelize.INTEGER
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE

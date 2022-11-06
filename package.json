@@ -1,7 +1,7 @@
 {
   "name": "backend-project",
   "version": "0.0.1",
-  "description": "",
+  "description": "API REST by Alex Lopez",
   "main": "index.js",
   "scripts": {
     "start": "index.js",
@@ -28,10 +28,10 @@
   },
   "homepage": "https://github.com/Coquixo/BackEnd-Project#readme",
   "dependencies": {
-    "bcrypt": "^5.1.0",
-    "dotenv": "^16.0.3",
+    "bcrypt": "5.1.0",
+    "dotenv": "16.0.3",
     "express": "4.18.2",
-    "jsonwebtoken": "^8.5.1",
+    "jsonwebtoken": "8.5.1",
     "mysql": "2.18.1",
     "mysql2": "2.3.3",
     "nodemon": "2.0.20",

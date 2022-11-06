@@ -63,7 +63,7 @@ FilmController.getFilmsByGenre = async (req, res) => {
     }
 };
 
-//Get Top rated Films -----------------------------
+//Get Top rated Films 
 
 FilmController.getTopRatedFilms = async (req, res) => {
     try {
@@ -71,7 +71,7 @@ FilmController.getTopRatedFilms = async (req, res) => {
             include: {
                 model: Film,
                 where: {
-                    rate: [8,10]
+                    rate: [8-10]
                 }
 
             }
@@ -94,7 +94,6 @@ FilmController.registerFilm = async (req, res) => {
         let data = req.body;
         let resp = await Film.create({
 
-            id_film: data.id_film,
             tittle: data.tittle,
             genre: data.genre,
             rate: data.rate,

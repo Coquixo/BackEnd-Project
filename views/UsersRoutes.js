@@ -13,7 +13,7 @@ router.get('/getAll', UserController.getUsers);
 router.post('/login', UserController.loginUser);
 
 //Get User by ID
-router.get('/getById/:id', UserController.getUserById);
+router.get('/getById/:id_user', UserController.getUserById);
 
 //Register new User
 
@@ -21,7 +21,7 @@ router.post('/register', UserController.registerUser)
 
 //Update existing User
 
-router.put('/updateUser', UserController.updateUser)
+router.put('/updateUser/:id_user', UserController.updateUser)
 
 //Delete User
 
