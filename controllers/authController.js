@@ -3,33 +3,6 @@ const User = require("../models/users");
 
 const authFunctions = {};
 
-// authFunctions.assertValidPassword = (pass) => {
-
-//     if (pass.length < 8) {
-//         throw new Error("Password must be at least 8 characters long")
-//     }
-//     if (!pass.match(/[a-z]/)) {
-//         throw new Error("Password must have at least one lower case letter");
-//     }
-//     if (!pass.match(/[A-Z]/)) {
-//         throw new Error("Password must have at least one upper case letter");
-//     }
-//     if (!pass.match(/[0-9]/)) {
-//         throw new Error("Password must have at least one number");
-//     }
-// }
-
-//Auth ID_User Already Exists?
-
-// authFunctions.assertId_UserIsUnique = async (id_user) => {
-//     const id_user = await User.findOne({ id_user: id_user });
-//     if (id_user) {
-//         res.send(("User alread exists")
-//     }
-// }
-
-//Auth is admin
-
 authFunctions.assertIsAdmin = async (req, res, next) => {
     try {
         let authorization = req.headers.authorization;
@@ -55,12 +28,9 @@ authFunctions.assertIsAdmin = async (req, res, next) => {
     }
 
 }
-
 authFunctions.authLoginController = async (req, res, next) => {
 
 }
-
-
 
 module.exports = authFunctions;
 

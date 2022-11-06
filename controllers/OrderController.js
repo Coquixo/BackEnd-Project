@@ -27,11 +27,6 @@ OrderController.getUserOrders = async (req, res) => {
     } catch (error) {
         res.send(error);
     }
-
-
-
-
-
 }
 
 //Generate new Order
