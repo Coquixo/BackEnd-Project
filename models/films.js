@@ -29,9 +29,9 @@ Films.init({
 
 }, {
   sequelize,
-  modelName: 'Films',
+  modelName: 'films',
   freezeTableName: true,
-  timestamps: false
+  timestamps: true
 });
 
 module.exports = Films;

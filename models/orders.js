@@ -24,9 +24,9 @@ Orders.init({
 
 }, {
   sequelize,
-  modelName: 'Orders',
+  modelName: 'orders',
   freezeTableName: true,
-  timestamps: false
+  timestamps: true
 });
 
 module.exports = Orders;

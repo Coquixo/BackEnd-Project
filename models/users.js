@@ -9,6 +9,22 @@ Users.init({
     autoIncrement: true,
     allowNull: false
   },
+  user_email: {
+    type: DataTypes.STRING,
+    allowNull: false,
+    unique:true,
+    validate: {
+      len: [1, 50]
+    }
+  },
+  user_password: {
+    type: DataTypes.STRING,
+    allowNull: false,
+    validate: {
+      len: [1, 255]
+    }
+
+  },
   name_user: {
     type: DataTypes.STRING,
     allowNull: false,
@@ -23,12 +39,15 @@ Users.init({
       len: [1, 25]
     }
   },
-  is_admin: DataTypes.BOOLEAN
+  is_admin: {
+    allowNull: false,
+    type: DataTypes.BOOLEAN
+  }
 }, {
   sequelize,
-  modelName: 'Users',
+  modelName: 'users',
   freezeTableName: true,
-  timestamps: false
+  timestamps: true
 });
 
 module.exports = Users;
