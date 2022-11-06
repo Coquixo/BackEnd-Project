@@ -1,8 +1,8 @@
-#API REST
+# API REST
 
 ## General Information
 
-On this project we've made an API, the main theme is film/series renting.
+In this project we've made an API, the main theme is film/series renting.
 
 ***
 ### Appendix
@@ -12,44 +12,29 @@ Some of them have admin permision in order to limit what an user can do, that me
 
 
 ## Table of content
-- [Tic Tac Toe](#tic-tac-toe-game)
+- [API REST](#api-rest)
 - [General Information](#general-information)   
 - [Appendix](#appendix)   
-- [Demo](#demo)   
-- [Deployment](#deployment)   
-- [Technologies](#technologies-and-library)   
+- [Relations](#relations)   
+- [Environment Install](#environment-install)
+- [Endpoints](#endpoints) 
+- [Technologies](#technologies-dependencies-and-libraries)   
 - [Environment Install](#environment-install)   
 - [Authors](#authors)   
 - [Badges](#badges)   
 
 ***
-## Demo
-Computer View:
-![img](/imgs/1.PNG)
-
-
-Responsive Device View (Nexus5)
-![img](/imgs/1m.PNG)
-
-
-
-
-***
-## Deployment
-Steps:
-
--Install dependencies with command:
-
-npm i bcrypt dotenv express jsonwebtoken mysql mysql2 nodemon sequelize sequelize-cli 
+## Relations
+![img](/img/relations.PNG)
 
 ***
 
 ## Environment Install
 Steps:
 
-- In order to start the project in our device we have to copy this link: "https://github.com/Coquixo/TicTacToe-fsd-val-Sem3.git"
+- In order to start the project in our device we have to copy this link: "https://github.com/Coquixo/BackEnd-Project.git"
 
-- Then open our console in our IDE, insert "git clone" then paste the link and enter.
+- Then open our IDE console, insert "git clone" then paste the link and enter.
 
 - Don't forget to work in the correct directory
 
@@ -81,7 +66,7 @@ AUTH_ROUNDS = 10
 - Open Postam in order to insert next Endpoints.
 ***
 
-## ENDPOINTS:
+### ENDPOINTS:
 
 http://localhost:3000/
 
@@ -93,7 +78,7 @@ http://localhost:3000/films
 http://localhost:3000/series
 
 
-#####Users Endpoints:
+##### Users Endpoints:
 
 Register New User(post)
 http://localhost:3000/users/register
@@ -113,7 +98,7 @@ http://localhost:3000/users/updateUser/:id_user
 Delete a User(Admin Only)
 http://localhost:3000/users/delete/:id_user
 
-####Films Endpoints:
+##### Films Endpoints:
 
 Register New Film(Admin Only)
 http://localhost:3000/films/registerFilm
@@ -139,7 +124,7 @@ http://localhost:3000/films/update/:id_film
 Delete a Film (Admin Only)
 http://localhost:3000/films/delete/:id_film
 
-####Series Endpoints
+##### Series Endpoints
 
 Register New Serie(Admin Only)
 http://localhost:3000/series/register
@@ -168,7 +153,7 @@ http://localhost:3000/series/update/:id_serie
 Delete Serie(Admin Only)
 http://localhost:3000/series/delete/:id_serie
 
-####Orders Endpoints
+##### Orders Endpoints
 
 Register New Order
 http://localhost:3000/orders/register
@@ -185,16 +170,16 @@ http://localhost:3000/orders/update/id_article
 Delete Order
 http://localhost:3000/orders/delete/:id_article
 
-
-
-
-
+***
 
 ##  Technologies, dependencies and libraries
 -   [JavaScript](https://www.javascript.com/)
 -   [Node](https://nodejs.org/en/)
 -   [Express](https://expressjs.com/)
 -   [Sequelize](https://sequelize.org/)
+-   [Sequelize-cli](https://www.npmjs.com/package/sequelize-cli)
+-   [Nodemon](https://www.npmjs.com/package/nodemon)
+-   [Dotenv](https://www.npmjs.com/package/dotenv)
 -   [MySQL](https://www.mysql.com/)
 -   [Docker](https://www.docker.com/)
 
