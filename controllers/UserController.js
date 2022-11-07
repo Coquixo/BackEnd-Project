@@ -62,7 +62,6 @@ UserController.registerUser = async (req, res) => {
             message: 'User created successfully'
         });
 
-
     } catch (error) {
         res.send(error)
     }

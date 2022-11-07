@@ -63,6 +63,10 @@ AUTH_ROUNDS = 10
 - Run the conection to the database with:
 (npm run dev)
 
+-Migrate models with command:
+
+( npx sequelize-cli db:migrate )
+
 - Open Postam in order to insert next Endpoints.
 (register and login, insert the given tokken into bearer authentification in postman.)
 ***
