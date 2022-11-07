@@ -10,7 +10,6 @@ OrderController.gerOrders = async (req, res) => {
     } catch (error) {
         res.send(error);
     }
-
 };
 
 //Get Orders from an User
@@ -29,20 +28,19 @@ OrderController.getUserOrders = async (req, res) => {
     }
 }
 
-//Generate new Order
+//Generate New Order
 
 OrderController.registerOrder = async (req, res) => {
 
     try {
         let data = req.body;
-        console.log(data)
         let resp = await Order.create({
+
             user_id: data.user_id,
             order_date: data.order_date,
             return_date: data.return_date,
             serie_id: data.serie_id,
             film_id: data.film_id
-
         })
 
         res.send(resp)
@@ -52,7 +50,7 @@ OrderController.registerOrder = async (req, res) => {
     }
 };
 
-//Update Order
+//Update An Existing Order
 
 OrderController.updateOrder = async (req, res) => {
 
@@ -67,11 +65,9 @@ OrderController.updateOrder = async (req, res) => {
             message: 'Order updated correctly'
         })
 
-
     } catch (error) {
         res.send(error);
     }
-
 };
 
 //Delete Order
@@ -82,16 +78,12 @@ OrderController.deleteOrder = async (req, res) => {
         let data = req.params;
         let resp = await Order.destroy({
             where: { id_article: data.id_article }
-
         })
-        console.log(resp);
-
         if (resp == 1) {
             res.send('Order has been deleted');
         } else {
             res.send("Order hasn't been deleted");
         }
-
     } catch (error) {
         res.send(error);
     }

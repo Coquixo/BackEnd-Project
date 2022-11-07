@@ -1,9 +1,8 @@
-const { findAll } = require('../models/series');
 const Serie = require('../models/series');
 const { Op } = require("sequelize");
 const SerieController = {};
 
-//Get all Series
+//Get All Series
 
 SerieController.getSeries = async (req, res) => {
     Serie.findAll()
@@ -12,7 +11,7 @@ SerieController.getSeries = async (req, res) => {
         });
 };
 
-//Get one serie by id
+//Get One Serie By Id
 
 SerieController.getSerieById = async (req, res) => {
     try {
@@ -41,12 +40,12 @@ SerieController.getSerieByTittle = async (req, res) => {
     }
 }
 
-//Get 7d upcoming series
+//Get 7d Upcoming Series
 
 SerieController.get7dUpcoming = async (req, res) => {
     const currentDate = new Date();
-
     const nextWeek = new Date();
+
     nextWeek.setDate(nextWeek.getDate() + 7)
     try {
         let resp = await Serie.findAll({
@@ -59,39 +58,32 @@ SerieController.get7dUpcoming = async (req, res) => {
         })
         res.send(resp)
 
-
     } catch (error) {
         res.send(error)
     }
-
-
-
 }
 
-//Get Series that are on theaters 
+//Get Series That Are Released On Theaters
 
 SerieController.getTheaterSeries = async (req, res) => {
-    try {
 
+    try {
         let resp = await Serie.findAll({
             where: { in_theater: true }
-
         })
-
         res.send(resp);
-
     } catch (error) {
         res.send(error);
     }
 }
 
-//Get Top rated Serie 
+//Get Top Rated Series
 
 SerieController.getTopRatedSeries = async (req, res) => {
+
     try {
         let resp = await Serie.findAll({
             where: { rate: [8 - 10] }
-
         })
         res.send(resp);
     } catch (error) {
@@ -99,7 +91,7 @@ SerieController.getTopRatedSeries = async (req, res) => {
     }
 }
 
-//Generate new Serie
+//Generate New Serie
 
 SerieController.registerSerie = async (req, res) => {
 
@@ -112,9 +104,7 @@ SerieController.registerSerie = async (req, res) => {
             rate: data.rate,
             in_theater: data.in_theater,
             release_date: data.release_date
-
         })
-
         res.send(resp)
     }
     catch (error) {
@@ -122,7 +112,7 @@ SerieController.registerSerie = async (req, res) => {
     }
 };
 
-//Update Serie
+//Update Existing Serie
 
 SerieController.updateSerie = async (req, res) => {
 
@@ -135,12 +125,9 @@ SerieController.updateSerie = async (req, res) => {
             rate: data.rate,
             in_theater: data.in_theater,
             release_date: data.release_date
-
         }, {
-
             where: { id_serie: req.params.id_serie }
         });
-
         res.send({
             message: 'Serie updated correctly'
         })
@@ -149,7 +136,7 @@ SerieController.updateSerie = async (req, res) => {
     }
 };
 
-//Delete Serie
+//Delete One Serie By Id
 
 SerieController.deleteSerie = async (req, res) => {
     try {
@@ -157,7 +144,6 @@ SerieController.deleteSerie = async (req, res) => {
         let resp = await Serie.destroy({
             where: { id_serie: data.id_serie }
         })
-        console.log(resp);
         if (resp == 1) {
             res.send('Serie has been deleted');
         } else {

@@ -3,26 +3,27 @@ const router = express.Router();
 const UserController = require('../controllers/UserController');
 const AuthController = require('../controllers/authController');
 
-//Register new User
+//Register New User
 
 router.post('/register', UserController.registerUser)
 
-//Login user
+//Login User
 
 router.post('/login', UserController.loginUser);
 
-//Get all Users
+//Get All Users
 
 router.get('/getAll', UserController.getUsers);
 
 //Get User by ID
+
 router.get('/getById/:id_user', UserController.getUserById);
 
-//Update existing User
+//Update An Existing User
 
 router.put('/updateUser/:id_user', UserController.updateUser)
 
-//Delete User
+//Delete A User
 
 router.delete('/delete/:id_user', AuthController.assertIsAdmin, UserController.deleteUser)
 

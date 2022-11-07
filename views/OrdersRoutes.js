@@ -16,7 +16,6 @@ router.get('/getAll', AuthController.assertIsAdmin, OrderController.gerOrders);
 
 router.get('/getUserOrders/:user_id', OrderController.getUserOrders)
 
-
 //Update Order
 
 router.put('/update/:id_article', OrderController.updateOrder);

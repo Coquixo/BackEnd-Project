@@ -11,7 +11,7 @@ router.post('/registerFilm',authController.assertIsAdmin, FilmController.registe
 
 router.get('/getAll',FilmController.getFilms);
 
-//Get Top rated Films  ----no ho se encara
+//Get Top Rated Films  
 
 router.get('/getTopRated', FilmController.getTopRatedFilms);
 
@@ -27,12 +27,11 @@ router.get('/getByTittle/:tittle', FilmController.getFilmByTittle);
 
 router.get('/getByGenre/:genre', FilmController.getFilmsByGenre);
 
-
-//Update Film
+//Update existing Film
 
 router.put('/update/:id_film',authController.assertIsAdmin, FilmController.updateFilm);
 
-//Delete Film
+//Delete A Film
 
 router.delete('/delete/:id_film', authController.assertIsAdmin,FilmController.deleteFilm);
 

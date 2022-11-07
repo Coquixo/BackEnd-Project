@@ -12,8 +12,8 @@ const generateToken = (user) => {
     })
 }
 
+//Get All Users
 
-//Get all Users
 UserController.getUsers = async (req, res) => {
     try {
         User.findAll()
@@ -40,7 +40,7 @@ UserController.getUserById = async (req, res) => {
     }
 }
 
-//register new User
+//Register A New User
 
 UserController.registerUser = async (req, res) => {
     try {
@@ -106,7 +106,7 @@ UserController.loginUser = async (req, res) => {
 
 }
 
-//Update existing User
+//Update Existing User
 
 UserController.updateUser = async (req, res) => {
 
@@ -132,7 +132,8 @@ UserController.updateUser = async (req, res) => {
     }
 };
 
-//Delete a User
+//Delete A User by Id
+
 UserController.deleteUser = async (req, res) => {
 
     try {
@@ -141,7 +142,6 @@ UserController.deleteUser = async (req, res) => {
         let resp = await User.destroy({
             where: { id_user: data.id_user }
         })
-        console.log(resp);
         if (resp == 1) {
             res.send('User has been deleted');
         } else {
