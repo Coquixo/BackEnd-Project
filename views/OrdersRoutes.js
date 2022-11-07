@@ -3,7 +3,6 @@ const router = express.Router();
 const OrderController = require('../controllers/OrderController');
 const AuthController = require('../controllers/authController')
 
-
 //Generate new Order
 
 router.post('/register', OrderController.registerOrder);

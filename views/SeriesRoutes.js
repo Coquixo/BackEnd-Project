@@ -31,7 +31,7 @@ router.get('/getByTittle/:tittle', SerieController.getSerieByTittle);
 
 router.get('/getAllTheater', SerieController.getTheaterSeries);
 
-//Update Serie
+//Update Existing Serie
 
 router.put('/update/:id_serie', authControllers.assertIsAdmin, SerieController.updateSerie);
 

@@ -64,6 +64,7 @@ AUTH_ROUNDS = 10
 (npm run dev)
 
 - Open Postam in order to insert next Endpoints.
+(register and login, insert the given tokken into bearer authentification in postman.)
 ***
 
 ### ENDPOINTS:

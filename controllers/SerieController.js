@@ -57,7 +57,6 @@ SerieController.get7dUpcoming = async (req, res) => {
             }
         })
         res.send(resp)
-
     } catch (error) {
         res.send(error)
     }

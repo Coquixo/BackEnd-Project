@@ -44,14 +44,9 @@ UserController.getUserById = async (req, res) => {
 
 UserController.registerUser = async (req, res) => {
     try {
-
         let data = req.body;
-
         let password = bcrypt.hashSync(data.user_password, Number.parseInt(authConfig.rounds || 10));
-
         let user = await User.create({
-
-
             user_email: data.user_email,
             user_password: password,
             name_user: data.name_user,
@@ -59,7 +54,6 @@ UserController.registerUser = async (req, res) => {
             is_admin: data.is_admin
 
         })
-
         res.send({
             resp: {
                 user: data.user_email,
@@ -82,10 +76,7 @@ UserController.loginUser = async (req, res) => {
     try {
         let data = req.body
         const user = await User.findOne({ where: { user_email: data.user_email } })
-
         const validPassword = await bcrypt.compareSync(data.user_password, user.user_password)
-
-
         if (!validPassword) {
             throw new Error("Invalid username or password")
         }
