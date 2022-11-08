@@ -45,6 +45,8 @@ Steps:
 -Project is uploaded on production, if it's close you can create a new container and use enviorment variables.
 (Create a file .env where you going to get your db enviorment variables or change config.js with the variables):
 
+https://railway.app/project/ef32896d-1dcb-4551-9419-052b27d777de/plugin/b647133b-fcf8-4589-89af-9f20a0cdf5d7/data
+
 Example:
 
 (#DB CONFIG)

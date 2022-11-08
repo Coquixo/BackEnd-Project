@@ -6,8 +6,6 @@ const OrdersRoutes = require('./views/OrdersRoutes');
 const FilmsRoutes = require('./views/FilmsRoutes');
 const SeriesRoutes = require('./views/SeriesRoutes');
 
-const authFunctions = require('./controllers/authController')
-
 router.use('/users', UsersRoutes);
 router.use('/orders', OrdersRoutes);
 router.use('/films', FilmsRoutes);
