@@ -1,11 +1,11 @@
 {
   "development": {
     "username": "root",
-    "password": "root",
-    "database": "netflix",
-    "host": "127.0.0.1",
+    "password": "P5O1sB5tx0ljZDcQZ1PL",
+    "database": "railway",
+    "host": "containers-us-west-99.railway.app",
     "dialect": "mysql",
-    "port":"33065"
+    "port":"5911"
   },
   "test": {
     "username": "root",

@@ -7,11 +7,13 @@ require('./models/associations')
 const PORT = 3000;
 
 //MiddleWares:
-
 app.use(express.json());
+
+//Routes
 app.use(router)
 
 
+//Conection to the dataBase
 app.listen(PORT, () => {
 
     console.log(`Server oppened at port ${PORT}`);

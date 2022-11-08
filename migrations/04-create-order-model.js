@@ -38,15 +38,8 @@ module.exports = {
           model: "series",
           key: "id_serie"
         }
-      },
-      createdAt: {
-        allowNull: false,
-        type: Sequelize.DATE
-      },
-      updatedAt: {
-        allowNull: false,
-        type: Sequelize.DATE
       }
+    
     });
   },
   async down(queryInterface, Sequelize) {
