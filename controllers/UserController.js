@@ -54,6 +54,7 @@ UserController.registerUser = async (req, res) => {
             is_admin: data.is_admin
 
         })
+        
         res.send({
             resp: {
                 user: data.user_email,
