@@ -47,6 +47,11 @@ Steps:
 
 https://railway.app/project/ef32896d-1dcb-4551-9419-052b27d777de/plugin/b647133b-fcf8-4589-89af-9f20a0cdf5d7/data
 
+-Migrate tables and seeders with next commands if they ain't launched:
+
+(npx sequelize-cli db:migrate)
+(npx sequelize-cli db:seed:all)
+
 Example:
 
 (#DB CONFIG)
