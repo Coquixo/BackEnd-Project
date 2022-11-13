@@ -54,7 +54,7 @@ UserController.registerUser = async (req, res) => {
             is_admin: data.is_admin
 
         })
-        
+
         res.send({
             resp: {
                 user: data.user_email,
@@ -105,7 +105,7 @@ UserController.updateUser = async (req, res) => {
     try {
 
         let data = req.body;
-        if (data.user_password) {
+        if (data.user_password) {   
             data.user_password = bcrypt.hashSync(data.user_password, Number.parseInt(authConfig.rounds || 10));
         }
 

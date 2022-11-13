@@ -21,7 +21,7 @@ router.get('/getById/:id_user', UserController.getUserById);
 
 //Update An Existing User
 
-router.put('/updateUser/:id_user', UserController.updateUser)
+router.put('/update/:id_user', UserController.updateUser)
 
 //Delete A User
 

@@ -25,13 +25,13 @@ Films.init({
     }
   },
   rate: DataTypes.INTEGER,
-  release_date: DataTypes.DATE,
+  release_date: DataTypes.DATEONLY,
 
 }, {
   sequelize,
   modelName: 'films',
   freezeTableName: true,
-  timestamps: true
+  timestamps: false
 });
 
 module.exports = Films;

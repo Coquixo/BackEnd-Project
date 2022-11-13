@@ -38,7 +38,7 @@ Orders.init({
   sequelize,
   modelName: 'orders',
   freezeTableName: true,
-  timestamps: true
+  timestamps: false
 });
 
 module.exports = Orders;

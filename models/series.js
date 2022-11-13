@@ -32,7 +32,7 @@ Series.init({
   sequelize,
   modelName: 'series',
   freezeTableName: true,
-  timestamps: true
+  timestamps: false
 });
 
 module.exports = Series;

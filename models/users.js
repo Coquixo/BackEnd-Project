@@ -47,7 +47,7 @@ Users.init({
   sequelize,
   modelName: 'users',
   freezeTableName: true,
-  timestamps: true
+  timestamps: false
 });
 
 module.exports = Users;
