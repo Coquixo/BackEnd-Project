@@ -41,7 +41,8 @@ Steps:
 - Install dependencies in terminal with command:
 
 ( npm i bcrypt dotenv express jsonwebtoken mysql mysql2 nodemon sequelize sequelize-cli )
-
+/or/
+(npm i)
 -Project is uploaded on production, if it's close you can create a new container and use enviorment variables.
 (Create a file .env where you going to get your db enviorment variables or change config.js with the variables):
 
