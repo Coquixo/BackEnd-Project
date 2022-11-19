@@ -3,9 +3,10 @@ const router = express.Router();
 const UserController = require('../controllers/UserController');
 const AuthController = require('../controllers/authController');
 
+
 //Register New User
 
-router.post('/register', UserController.registerUser)
+router.post('/register', AuthController.authRegisterController, UserController.registerUser)
 
 //Login User
 

@@ -75,8 +75,10 @@ UserController.loginUser = async (req, res) => {
 
     try {
         let data = req.body
+
         const user = await User.findOne({ where: { user_email: data.user_email } })
         const validPassword = await bcrypt.compareSync(data.user_password, user.user_password)
+
         if (!validPassword) {
             throw new Error("Invalid username or password")
         }
@@ -90,6 +92,7 @@ UserController.loginUser = async (req, res) => {
     }
 
     catch (error) {
+        //if it does not found a user it also drops that message
         res.status(401).send({
             message: "Invalid email/password"
         });
@@ -105,11 +108,19 @@ UserController.updateUser = async (req, res) => {
     try {
 
         let data = req.body;
-        if (data.user_password) {   
+        if (data.user_password) {
             data.user_password = bcrypt.hashSync(data.user_password, Number.parseInt(authConfig.rounds || 10));
         }
 
-        let user = await User.update(data, {
+
+        let user = await User.update(
+            {
+                /*mirar aqui*/
+                "user_password": data.user_password,
+                "name_user": data.name_user,
+                "surname_user": data.surname_user,
+
+            }, {
             where: { id_user: req.params.id_user }
 
         });
