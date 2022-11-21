@@ -51,7 +51,7 @@ UserController.registerUser = async (req, res) => {
             user_password: password,
             name_user: data.name_user,
             surname_user: data.surname_user,
-            is_admin:  data.is_admin || "user"
+            is_admin:  data.is_admin || false
 
         })
 
